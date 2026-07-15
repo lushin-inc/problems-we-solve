@@ -216,18 +216,8 @@ h1{font-size:27px;font-weight:600;color:var(--stable);letter-spacing:.2px}
   <!-- HOME -->
   <section id="v-home" class="view">
     <h1>Problems We Fix</h1>
-    <p class="premise">A sales organization performs consistent with its design. When the results are off, the design is off &mdash; so we fix the design, not just the symptoms.</p>
 
     <div class="vwrap home"><video controls preload="metadata" playsinline src="jody-williams-4s.mp4"></video></div>
-
-    <div class="big2">
-      <div class="lbl">The two biggest problems</div>
-      <div class="row"><span class="dot"></span><span><b>Not enough new business</b> &mdash; too few new prospects and too few new deals.</span></div>
-      <div class="row"><span class="dot"></span><span><b>Not enough closing</b> &mdash; losing to competition on stalls, put-offs, and think-it-overs.</span></div>
-    </div>
-
-    <div class="grid" id="tiles"></div>
-    <div class="grid2" id="tiles-util"></div>
 
     <div class="read" id="read">
       <div class="rlbl">Your read</div>
@@ -343,6 +333,7 @@ function totalFlags(){ return DIAG.reduce((n,k)=>n+countFor(k),0); }
 function svg(name,cls){ return '<svg viewBox="0 0 24 24" class="'+(cls||'')+'">'+ICONS[name]+'</svg>'; }
 
 function renderTiles(){
+  if(!document.getElementById('tiles')) return;
   const main=['strategy','staff','skills','structure'];
   document.getElementById('tiles').innerHTML = main.map(k=>{
     const c=countFor(k);
